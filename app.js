@@ -54,7 +54,7 @@ var actuator_off_short_name = "Socket 1 Off"; //"My Actuator Turn Off";
 var ninas_eyes_short_name = "Office Eyes"; //Nina\'s Eyes"
 
 // The host where we'll deploy our apps
-var HOSTNAME = "https://tweetshoot.pagekite.me";
+var HOSTNAME = "https://yourappname.com";
 
 // Transitional temperatures.  We use two to avoid hysteresis
 var transitional_temperature_on = 28;
@@ -68,7 +68,7 @@ var app_mode = 'off';
 var ninjaBlocks = require('ninja-blocks');
 
 // Instantiate a ninja object with your API token from https://a.ninja.is/hacking
-var ninja = ninjaBlocks.app({user_access_token:"LiIwsKckMdYx9ifc57EhGh2xvoZcSIr9dOiQm1Jayg"});
+var ninja = ninjaBlocks.app({user_access_token:"YOUR_TOKEN"});
 
 // Import Underscore
 var _ = require('underscore');
