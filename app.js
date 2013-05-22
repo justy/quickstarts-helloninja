@@ -46,19 +46,19 @@ http.createServer(app).listen(app.get('port'), function(){
 // Name your sensors and actuators on the Dashboard 
 // and set the variables here appropriately
 
-var rf433_short_name = "Office Ninja" ; //"RF433 MHz";
-var temperature_short_name = "Office Temp"; //My Temperature and Humidity Sensor";
-var button_short_name = "My Button";
-var actuator_on_short_name = "Socket 1 On"; //My Actuator Turn On";
-var actuator_off_short_name = "Socket 1 Off"; //"My Actuator Turn Off";
-var ninas_eyes_short_name = "Office Eyes"; //Nina\'s Eyes"
+var rf433_short_name = "RF 433Mhz";
+var temperature_short_name = "Temperature"; //My Temperature and Humidity Sensor";
+var button_short_name = "Office Button";
+var actuator_on_short_name = "My Actuator On";
+var actuator_off_short_name = "My Actuator Off";
+var ninas_eyes_short_name = "Nina\'s Eyes";
 
 // The host where we'll deploy our apps
-var HOSTNAME = "https://tweetshoot.pagekite.me";
+var HOSTNAME = "https://quickstarts-helloninja.herokuapp.com/";
 
 // Transitional temperatures.  We use two to avoid hysteresis
-var transitional_temperature_on = 28;
-var transitional_temperature_off = 26;
+var transitional_temperature_on = 22.0;
+var transitional_temperature_off = 20.0;
 var current_temperature = 0;
 
 // Maintain a variable that represents the state of our room
@@ -68,7 +68,7 @@ var app_mode = 'off';
 var ninjaBlocks = require('ninja-blocks');
 
 // Instantiate a ninja object with your API token from https://a.ninja.is/hacking
-var ninja = ninjaBlocks.app({user_access_token:"LiIwsKckMdYx9ifc57EhGh2xvoZcSIr9dOiQm1Jayg"});
+var ninja = ninjaBlocks.app({user_access_token:"viKh7XEYls1kP6WnltcWOa4GSnBF4MhOAmKzcf8k"});
 
 // Import Underscore
 var _ = require('underscore');
@@ -107,7 +107,7 @@ ninja.devices(function(err, devices) {
       console.log("Found Temperature Sensor: ", key);
       temperature_device_key = key;
     }
-    
+
     // RF Goodness
     if (device.shortName == rf433_short_name) {
 
@@ -163,11 +163,9 @@ function idleApp() {
     break;
 
     case 'auto':
-    
     ninja.device(temperature_device_key).last_heartbeat(function(err, data) {
         current_temperature = data.DA;
     });
-    //var current_temperature = ninja.devices[temperature_device_key].last_data.DA;
 
     console.log("Temperature is: ", current_temperature);
 
