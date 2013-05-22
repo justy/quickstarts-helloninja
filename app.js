@@ -63,6 +63,7 @@ var current_temperature = 0;
 
 // Maintain a variable that represents the state of our room
 var app_mode = 'off';
+var socket_mode = 'off'; // Cache the socket's state so we don't flood the airwaves
 
 // Include our underscore and ninja-blocks libraries
 var ninjaBlocks = require('ninja-blocks');
@@ -171,14 +172,18 @@ function idleApp() {
 
     if (current_temperature > transitional_temperature_on) {
       // Switch our actuator on
-      ninja.device(rf_device_key).actuate(rf_subdevice_list[actuator_on_short_name]);
+      if (socket_mode == 'off') {
+        ninja.device(rf_device_key).actuate(rf_subdevice_list[actuator_on_short_name]);
+      }
     }
 
     if (current_temperature < transitional_temperature_off) {
+      if (socket_mode == 'on') {
       // Switch our actuator off
-      ninja.device(rf_device_key).actuate(rf_subdevice_list[actuator_off_short_name]);
+       ninja.device(rf_device_key).actuate(rf_subdevice_list[actuator_off_short_name]);
+      }
     }
-    
+
     break;
   } // switch
 
@@ -190,8 +195,8 @@ app.post('/rf' , function(req, res){
 console.log('posted: ', req.body.DA);
 
   // Accept the RF input, filtering out the button we are after
-  if (req.body.DA == rf_subdevice_list[button_short_name]) {
-  console.log("Button was pressed");  
+if (req.body.DA == rf_subdevice_list[button_short_name]) {
+  console.log("Button was pressed");
 
     //console.log("rf device key is: ", rf_device_key);
 
