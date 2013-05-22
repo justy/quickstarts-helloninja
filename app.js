@@ -56,6 +56,7 @@ var ninas_eyes_short_name = "Nina\'s Eyes";
 // The host where we'll deploy our apps
 var HOSTNAME = "https://quickstarts-helloninja.herokuapp.com/";
 
+
 // Transitional temperatures.  We use two to avoid hysteresis
 var transitional_temperature_on = 22.0;
 var transitional_temperature_off = 20.0;
@@ -70,6 +71,7 @@ var ninjaBlocks = require('ninja-blocks');
 
 // Instantiate a ninja object with your API token from https://a.ninja.is/hacking
 var ninja = ninjaBlocks.app({user_access_token:"viKh7XEYls1kP6WnltcWOa4GSnBF4MhOAmKzcf8k"});
+
 
 // Import Underscore
 var _ = require('underscore');
