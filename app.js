@@ -183,6 +183,7 @@ function idleApp() {
       // Switch our actuator on
       if (socket_mode == 'off') {
         ninja.device(rf_device_key).actuate(rf_subdevice_list[actuator_on_short_name]);
+        socket_mode = 'on';
       }
     }
 
@@ -190,6 +191,7 @@ function idleApp() {
       if (socket_mode == 'on') {
       // Switch our actuator off
        ninja.device(rf_device_key).actuate(rf_subdevice_list[actuator_off_short_name]);
+       socket_mode = 'off';
       }
     }
 
@@ -220,6 +222,7 @@ if (req.body.DA == rf_subdevice_list[button_short_name]) {
         // Switch to mode 'on', turning on the socket
         app_mode = 'on';
         ninja.device(rf_device_key).actuate(rf_subdevice_list[actuator_on_short_name]);
+        socket_mode ='on';
         // Update Nina's eyes
         updateEyes(app_mode);
       break;
@@ -237,6 +240,7 @@ if (req.body.DA == rf_subdevice_list[button_short_name]) {
         // Switch to mode 'off', turning off the socket
         app_mode = 'off';
         ninja.device(rf_device_key).actuate(rf_subdevice_list[actuator_off_short_name]);
+        socket_mode = 'off';
         // Update Nina's eyes
         updateEyes(app_mode);
       break;
