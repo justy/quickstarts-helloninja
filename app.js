@@ -1,3 +1,11 @@
+/*
+ * Copyright (C) 2013 Justin James Clayden for Ninja Blocks - http://www.ninjablocks.com
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
 // quickstarts-helloninja
 
 // Code to accompany http://docs.ninja.is/quickstarts/bootcamp/helloninja.html
@@ -71,7 +79,7 @@ var socket_mode = 'off'; // Cache the socket's state so we don't flood the airwa
 var ninjaBlocks = require('ninja-blocks');
 
 // Instantiate a ninja object with your API token from https://a.ninja.is/hacking
-var ninja = ninjaBlocks.app({user_access_token:"muOnSd6ofxcZ7CoC7jZmyVgM7mlTm4QutF7YTvrw "}); // This one is long revoked.
+var ninja = ninjaBlocks.app({user_access_token:"muOnSd6ofxcZ7CoC7jZmyVgM7mlTm4QutF7YTvrw"}); // This one is long revoked.
 
 // Import Underscore
 var _ = require('underscore');
