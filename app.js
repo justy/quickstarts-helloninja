@@ -48,7 +48,7 @@ http.createServer(app).listen(app.get('port'), function(){
 
 var rf433_short_name = "RF 433Mhz";
 var temperature_short_name = "Temperature"; //My Temperature and Humidity Sensor";
-var button_short_name = "Office Button";
+var button_short_name = "Button";
 var actuator_on_short_name = "My Actuator On";
 var actuator_off_short_name = "My Actuator Off";
 var ninas_eyes_short_name = "Nina\'s Eyes";
