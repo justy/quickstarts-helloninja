@@ -243,11 +243,11 @@ function updateEyes(mode) {
   switch (mode) {
 
     case 'off':
-      ninja.device(eyes_device_key).actuate('0000FF');
+      ninja.device(eyes_device_key).actuate('000000');
     break;
 
     case 'on':
-      ninja.device(eyes_device_key).actuate('FF0000');
+      ninja.device(eyes_device_key).actuate('00FF00');
     break;
 
     case 'auto':
