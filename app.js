@@ -53,9 +53,10 @@ var actuator_on_short_name = "My Actuator On";
 var actuator_off_short_name = "My Actuator Off";
 var ninas_eyes_short_name = "Nina\'s Eyes";
 
-// The host where we'll deploy our apps
+// The host where we'll deploy our apps- replace this with yours
+// If you use Heroku, don't forget to heroku ps:scale web=1 or else you'll receive an error on visiting the app.  
+// (Not that the front-end of the app is important in this case, but if you see an error you'll know why)
 var HOSTNAME = "https://quickstarts-helloninja.herokuapp.com/";
-
 
 // Transitional temperatures.  We use two to avoid hysteresis
 var transitional_temperature_on = 22.0;
@@ -70,14 +71,12 @@ var socket_mode = 'off'; // Cache the socket's state so we don't flood the airwa
 var ninjaBlocks = require('ninja-blocks');
 
 // Instantiate a ninja object with your API token from https://a.ninja.is/hacking
-var ninja = ninjaBlocks.app({user_access_token:"viKh7XEYls1kP6WnltcWOa4GSnBF4MhOAmKzcf8k"});
-
+var ninja = ninjaBlocks.app({user_access_token:"muOnSd6ofxcZ7CoC7jZmyVgM7mlTm4QutF7YTvrw "}); // This one is long revoked.
 
 // Import Underscore
 var _ = require('underscore');
 
 // Pull out our desired devices by their short name.
-// We will have 2 devices and 3 subdevices
 
 // Nina's Eyes Device
 var eyes_device_key;
