@@ -194,6 +194,7 @@ function idleApp() {
 // Implement our rf route
 app.post('/rf' , function(req, res){
 console.log('posted: ', req.body.DA);
+console.log('rf_subdevice_list[button_short_name]): ' + rf_subdevice_list[button_short_name]);
 
   // Accept the RF input, filtering out the button we are after
 if (req.body.DA == rf_subdevice_list[button_short_name]) {
