@@ -67,8 +67,8 @@ var ninas_eyes_short_name = "Nina\'s Eyes";
 var HOSTNAME = "https://quickstarts-helloninja.herokuapp.com/";
 
 // Transitional temperatures.  We use two to avoid hysteresis
-var transitional_temperature_on = 22.0;
-var transitional_temperature_off = 20.0;
+var transitional_temperature_on = 23.0;
+var transitional_temperature_off = 21.0;
 var current_temperature = 0;
 
 // Maintain a variable that represents the state of our room
